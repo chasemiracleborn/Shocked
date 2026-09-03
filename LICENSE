@@ -1,0 +1,36 @@
+Proprietary License
+
+Copyright (c) 2025-2026 Shocked Project. All Rights Reserved.
+
+This software and its associated documentation and source files (the
+"Software") are proprietary and confidential. No part of the Software may be
+used, copied, modified, merged, published, distributed, sublicensed, or sold,
+in whole or in part, in any form or by any means, without the prior written
+permission of the copyright holder.
+
+Recipients of a compiled distribution of the Software (for example, a Debian
+`.deb` package) are granted a limited, personal, non-transferable,
+non-exclusive license to install and run the Software on their own hardware
+for its intended purpose. This license does not grant any right to the source
+code, to redistribute the Software, or to create derivative works.
+
+THIRD-PARTY SOFTWARE AND LICENSE RIGHTS
+
+Third-party libraries, runtimes, and other components used by or with Shocked
+are not relicensed under this proprietary license. They remain governed by
+their respective licenses and copyright notices. Nothing in this license is
+intended to restrict, override, or remove rights that a recipient has under an
+applicable third-party license. Where an applicable third-party license grants
+rights to replace, modify, reverse engineer, or debug a covered third-party
+component for the purpose of exercising that license's rights, those rights
+are not restricted by this Shocked license.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY,
+WHETHER IN AN ACTION OF CONTRACT, TORT, OR OTHERWISE, ARISING FROM, OUT OF,
+OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE, INCLUDING BUT NOT LIMITED TO DAMAGE TO HARDWARE, DATA LOSS, OR
+SYSTEM INSTABILITY RESULTING FROM ITS POWER-MANAGEMENT CONTROLS. USE AT YOUR
+OWN RISK.

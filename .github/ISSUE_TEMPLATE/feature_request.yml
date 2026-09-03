@@ -1,0 +1,33 @@
+name: Feature request
+description: Suggest a Shocked improvement
+title: "[Feature] "
+labels: []
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or workflow
+      description: What limitation, workflow, or use case should Shocked address?
+    validations:
+      required: true
+  - type: textarea
+    id: request
+    attributes:
+      label: Requested behavior
+      description: Describe what you would like Shocked to do.
+    validations:
+      required: true
+  - type: textarea
+    id: hardware
+    attributes:
+      label: Relevant hardware or platform details
+      description: Include only details that materially affect the request.
+    validations:
+      required: false
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Optional — describe workarounds or alternatives you have tried.
+    validations:
+      required: false

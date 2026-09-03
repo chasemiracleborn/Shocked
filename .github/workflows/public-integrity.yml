@@ -1,0 +1,64 @@
+name: Public release integrity
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  integrity:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Validate installer syntax
+        run: bash -n install-shocked-30.0.0.sh
+
+      - name: Verify installer checksum
+        run: grep '  install-shocked-30.0.0.sh$' SHA256SUMS | sha256sum -c -
+
+      - name: Verify release identity
+        run: |
+          grep -Fq '30.0.0-8+console3' README.md
+          grep -Fq 'shocked-console3_30.0.0-8+console3_amd64.deb' README.md
+          grep -Fq '503b656e2454a1d30b4921089abd96f4ed72937255c035f238ebfcb64841c7f0' SHA256SUMS
+          grep -Fq '45914f64f68a5c8345e65a94b62251e10a1b3c9252bad0ac956b241d792afb1a' SHA256SUMS
+
+      - name: Public privacy gate
+        run: |
+          # Reject personal home-directory paths and direct personal mailbox
+          # addresses without embedding any specific private value in Git.
+          if grep -R -n -E '/home/[A-Za-z0-9._-]+|[A-Za-z0-9._%+-]+@(gmail|hotmail|outlook|yahoo)\.com|noreply@example\.invalid' \
+            --exclude-dir=.git .; then
+            echo 'Potential private/placeholder release string found.' >&2
+            exit 1
+          fi
+
+      - name: Proprietary-source publication gate
+        run: |
+          test ! -d src
+          test ! -f Cargo.toml
+          test ! -f Cargo.lock
+          if find . -path './.git' -prune -o -type f -name '*.rs' -print | grep -q .; then
+            echo 'Rust source file unexpectedly present in public distribution repository.' >&2
+            exit 1
+          fi
+
+      - name: Removed-material gate
+        run: |
+          for path in \
+            .compliance \
+            LICENSE-COMPLIANCE.md \
+            QT-LGPL-SOURCE-OFFER.md \
+            QT-LICENSE-NOTICE.md \
+            THIRD_PARTY_NOTICES.md \
+            licenses \
+            .github/workflows/license-compliance.yml
+          do
+            test ! -e "$path" || { echo "Removed public material returned: $path" >&2; exit 1; }
+          done

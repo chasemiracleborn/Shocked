@@ -1,0 +1,68 @@
+name: Bug report
+description: Report a reproducible Shocked problem
+title: "[Bug] "
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Before posting, remove credentials, account identifiers, private paths, and unrelated personal information. For security-sensitive problems, follow SECURITY.md instead of opening a public issue.
+  - type: input
+    id: version
+    attributes:
+      label: Shocked version
+      placeholder: 30.0.0-8+console3
+    validations:
+      required: true
+  - type: input
+    id: distro
+    attributes:
+      label: Distribution and version
+      placeholder: Kubuntu 26.04 LTS
+    validations:
+      required: true
+  - type: input
+    id: kernel
+    attributes:
+      label: Kernel
+      placeholder: Output of uname -r
+    validations:
+      required: true
+  - type: input
+    id: cpu
+    attributes:
+      label: CPU
+      placeholder: CPU model
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened?
+      description: Describe the observed behavior and the behavior you expected.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      description: Give the smallest reliable sequence that reproduces the problem.
+    validations:
+      required: true
+  - type: textarea
+    id: diagnostics
+    attributes:
+      label: Relevant diagnostics
+      description: Paste only the relevant reviewed output from shocked-ctl doctor, logs, or error messages. Remove private information first.
+      render: shell
+    validations:
+      required: false
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Privacy and scope check
+      options:
+        - label: I reviewed the information above and removed credentials and unrelated private information.
+          required: true
+        - label: This is not a security-sensitive vulnerability that should be reported privately.
+          required: true

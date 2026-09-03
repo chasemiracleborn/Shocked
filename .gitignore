@@ -1,0 +1,31 @@
+# Public distribution repository: keep generated/private build artifacts out of Git.
+*.deb
+*.ddeb
+*.tar
+*.tar.gz
+*.tar.xz
+*.tar.zst
+*.zip
+*.patch
+
+# Proprietary Shocked source/build trees must not be published here.
+src/
+console/
+systemd/
+scripts/
+Cargo.toml
+Cargo.lock
+*.rs
+build-shocked*.sh
+create-shocked*.sh
+Shocked-*-source/
+
+# Build/cache material
+target/
+release/
+__pycache__/
+*.pyc
+
+# Local editor/OS files
+.DS_Store
+*~
